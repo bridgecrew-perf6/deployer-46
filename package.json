@@ -1,13 +1,14 @@
 {
-  "name": "deployer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "start": "pm2 start index.js && pm2 monit",
-    "lint": "eslint . --ext .ts --ignore-pattern node_modules",
-    "test": "npm run lint"
+	"name": "deployer",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc",
+		"start": "npm run build && pm2 start index.js && pm2 monit",
+		"typecheck": "tsc --noEmit",
+		"lint": "eslint . --ext .ts --ignore-pattern node_modules",
+		"test": "npm run typecheck && npm run lint"
   },
   "keywords": [],
   "author": "Magdi Hazaa",
